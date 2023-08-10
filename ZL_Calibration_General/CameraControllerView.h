@@ -29,15 +29,10 @@ public:
         //        }
 
         CameraOutput* channelOutput = new CameraOutput(this);
-        CameraOutput* channelOutput1 = new CameraOutput(this);
-        CameraOutput* channelOutput2 = new CameraOutput(this);
-        CameraOutput* channelOutput3 = new CameraOutput(this);
-        //m_outputs.append(channelOutput);
+
         //qDebug()<<row << "," << col;
-        m_layout->addItem(channelOutput, 0, 0);
-        m_layout->addItem(channelOutput1, 1, 1);
-        m_layout->addItem(channelOutput2, 1, 0);
-        m_layout->addItem(channelOutput3, 1, 1);
+        m_layout->addItem(channelOutput, 0, 0,1,1);
+
 
 
     }

@@ -19,8 +19,11 @@ public:
         qDebug()<<"CameraOutput";
 //        QLabel *label = new QLabel("CH 1");
 //        m_layout->addItem(label);
-        m_layout->addItem(new ImageItem());
+        ImageItemBase *imageItem = new ImageItem(this);
+        m_layout->addItem(imageItem);
+
         setLayout(m_layout);//设置布局
+
     }
 private:
     QGraphicsLinearLayout* m_layout;

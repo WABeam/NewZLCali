@@ -37,6 +37,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="image.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -45,14 +48,49 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="CameraControllerView.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="CameraOutput.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
     <QtMoc Include="ChannelViewerWidget.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="ImageItem.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Image_base.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="exception.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="global.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="image.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="image_conversion.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="image_private.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <QtMoc Include="mainwindow.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
