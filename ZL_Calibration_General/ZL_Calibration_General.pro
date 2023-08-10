@@ -13,6 +13,9 @@ SOURCES += \
     mainwindow.cpp
 
 HEADERS += \
+    CameraControllerView.h \
+    CameraOutput.h \
+    Image_base.h \
     mainwindow.h \
     ChannelViewerWidget.h
 
