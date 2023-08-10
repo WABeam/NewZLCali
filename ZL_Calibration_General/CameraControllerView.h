@@ -20,19 +20,24 @@ public:
         int numChannels = 4;
 
         // Create CameraOutput instances for each channel and add them to the layout
-        int row = 0,col = 0;
-        for (int i = 0; i < numChannels; ++i) {
-            CameraOutput* channelOutput = new CameraOutput(this);
-            m_outputs.append(channelOutput);
-            qDebug()<<row << "," << col;
-            m_layout->addItem(channelOutput, row, col);
-            col++;
-            if(col==2)
-            {
-                row++;
-                col=0;
-            }
-        }
+        // int row = 0,col = 0;
+        //        for (int i = 0; i < numChannels; ++i) {
+        //            CameraOutput* channelOutput = new CameraOutput(this);
+        //            m_outputs.append(channelOutput);
+        //            //qDebug()<<row << "," << col;
+        //            m_layout->addItem(channelOutput, i/numChannels, i%numChannels);
+        //        }
+
+        CameraOutput* channelOutput = new CameraOutput(this);
+        CameraOutput* channelOutput1 = new CameraOutput(this);
+        CameraOutput* channelOutput2 = new CameraOutput(this);
+        CameraOutput* channelOutput3 = new CameraOutput(this);
+        //m_outputs.append(channelOutput);
+        //qDebug()<<row << "," << col;
+        m_layout->addItem(channelOutput, 0, 0);
+        m_layout->addItem(channelOutput1, 1, 1);
+        m_layout->addItem(channelOutput2, 1, 0);
+        m_layout->addItem(channelOutput3, 1, 1);
 
 
     }

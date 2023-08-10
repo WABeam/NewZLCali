@@ -21,8 +21,6 @@ public:
     explicit ChannelViewerWidget(QWidget* parent = nullptr) :QWidget(parent)
     {
         layout = new QHBoxLayout(this);
-        //cameraout_layout = new QVBoxLayout(this);
-        //QSplitter* splitter = new QSplitter(Qt::Horizontal, this);
         treeView = new QTreeView(this);
         graphicsView = new QGraphicsView(this);//右边图像显示通道
         graphicsScene = new QGraphicsScene(this);
@@ -36,15 +34,10 @@ public:
 
         setupTreeView();
         graphicsView->setScene(graphicsScene);
-        // Set minimum and maximum width for QTreeView
-        //treeView->setMinimumWidth(200); // Adjust as needed
-        //treeView->setMaximumWidth(200); // Adjust as needed
 
-        //splitter->addWidget(treeView);
-        //splitter->addWidget(graphicsView);
 
         layout->addWidget(treeView,1);
-        layout->addWidget(graphicsView,4);
+        layout->addWidget(graphicsView,5);
 
         connect(graphicsScene, &QGraphicsScene::sceneRectChanged, m_outputGrid,
                        [this](const QRectF& rect) {
@@ -100,9 +93,5 @@ private:
 
         connect(treeView->selectionModel(), &QItemSelectionModel::currentChanged,
                 this, &ChannelViewerWidget::handleTreeViewSelection);
-    }
-    void setupGraphicsView()
-    {
-        graphicsView->setScene(graphicsScene);
     }
 };

@@ -14,7 +14,9 @@ public:
     }
 
     QRectF boundingRect() const override {
-        return QRectF(QPointF(0, 0), geometry().size());
+        qDebug()<<geometry().size();
+        //return QRectF(QPointF(0, 0), geometry().size());
+        return QRectF(QPointF(0, 0), QSizeF(300,300));
     }
 
     void setGeometry(const QRectF& geom) override {
@@ -37,17 +39,35 @@ public:
     explicit ImageItem(QGraphicsItem* parent = nullptr) :
         ImageItemBase(parent)
     {
-
+        m_pixmap = new QPixmap("E:\\0000.bmp");
     }
 
     void paint(QPainter* painter, const QStyleOptionGraphicsItem*,
                QWidget*) override {
         qDebug()<<"drawpix";
-        painter->drawPixmap(QPointF(0, 0), m_pixmap);
+        const QRectF rect = boundingRect();
+        if (rect.isEmpty()) {
+            qDebug()<<"rect.isEmpty()";
+            return;
+        }
+        painter->fillRect(rect, Qt::black);
+        if (!(*m_pixmap)) {
+            return;
+        }
+        const QSize size = rect.size().toSize();
+        if (!m_scaled || m_scaled.size() != size) {
+            m_scaled = (*m_pixmap).scaled(size, Qt::KeepAspectRatio);
+        }
+
+        const QPointF topLeft(
+                    rect.x() + (rect.width() - m_scaled.width()) * 0.5,
+                    rect.y() + (rect.height() - m_scaled.height()) * 0.5);
+        painter->drawPixmap(topLeft, m_scaled);
     }
 
 private:
-    QPixmap m_pixmap;
+    QPixmap *m_pixmap;
+    QPixmap m_scaled;
 };
 
 
